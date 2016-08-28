@@ -19,6 +19,11 @@ void draw() {
     random(height/2), random(width/2 + 300, width), noise(height/2), random(width/2), 
     noise(height/2));
     
+    bezier(100, 100, random(0, height), 
+    random(height), noise(0, height), random(width / 2 - 300), width, 
+    height);
+    
+    
   }
   
   noLoop(); 
