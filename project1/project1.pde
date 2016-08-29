@@ -4,7 +4,7 @@ int green = 0;
 float randomColor = 0; 
 
 void setup() {
-  background(255); 
+  background(0); 
   size(800, 600); //800, 600
   noFill(); 
   smooth(); 
