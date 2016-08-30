@@ -1,3 +1,8 @@
+//Mihir Srivastava 
+//Project 1: Lines Curves and Forms
+//Used Processing API to learn Bezier and Noise functions
+//---
+
 int blue = 10; 
 int red = 232; 
 int green = 173; 
@@ -32,6 +37,7 @@ void draw()  {
     height);
   }*/
   
+  //creates eye lids and the two crossing bezier curves
   for(int i = 0; i < 250; i++) {
     
     strokeWeight(.005); 
@@ -48,6 +54,7 @@ void draw()  {
 
     //------------------------------------------
     
+    //creates circle lens and draws bezier in ellipse shape 
     strokeWeight(.005); 
     smooth(); 
     stroke(red, green, blue); 
