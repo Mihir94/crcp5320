@@ -15,13 +15,13 @@ void trunk() {
   translate(0, -300); 
 }
 
-void branch(float branchLength) {
+void branch(/*float branchLength*/) {
   //branchLength = branchLength * .6; 
   
   pushMatrix(); 
   rotate(PI / 3); 
-  line(0, 0, 0, branchLength); 
-  translate(0, branchLength); 
+  line(0, 0, 0, 250); 
+  translate(0, 250); 
   popMatrix(); 
   
   
