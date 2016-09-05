@@ -1,7 +1,7 @@
 float angle; 
 float bLength; 
-int counter = 3; 
-float weight = 6.0; 
+//int counter = 35; 
+float weight = 7.0; 
 
 void setup() {
   background(255); 
@@ -10,7 +10,7 @@ void setup() {
 
 void draw() {
   trunk1();
-  weight = 5; 
+  weight = 6; 
   branch1(300, weight-1,"l");
   //branch1(bLength); 
   //branch1(290); 
@@ -20,11 +20,13 @@ void draw() {
 void trunk1() {
   strokeWeight(weight); 
   translate(width - 300, height); 
-  line(0, 0, 0, -200); 
-  translate(0, -200); 
+  line(0, 0, 0, -300); 
+  translate(0, -300); 
 }
 
+float randNum; 
 void branch1(float branchLength, float weight, String str) {
+  randNum = random(0, 1); 
   println("str:" + str + " " + weight); 
   /*
   if(weight < 1) {
@@ -38,8 +40,9 @@ void branch1(float branchLength, float weight, String str) {
   //line(0, 0, 0, -branchLength); 
   //translate(0, -branchLength); 
   branchLength = branchLength * .6; 
+  //branchLength = random(30, 300); 
 
-  if(branchLength > 30) {
+  if(branchLength > 20) {
     //counter--; 
     if(weight < 1)
       weight = 1; 
@@ -56,7 +59,36 @@ void branch1(float branchLength, float weight, String str) {
     rotate(angle); 
     line(0, 0, 0, -branchLength); 
     translate(0, -branchLength); 
+    
+    /*for(int i = 0; i < 100; i++) {
+      bezier(0, 0, random(width/2, width/2 + 40), random(width/2, width/2 -40), random(0, -40), random(0, 40), 0, 0); 
+    }*/
+    
+    if(branchLength < 24 && branchLength > 21) {
+      stroke(200, 0, 0); 
+      fill(200, 0, 0); 
+      ellipse(0, 0, 30, 30); 
+    }
+    stroke(0);
+    fill(0); 
     branch1(branchLength, weight-1.0,"l"); 
+    popMatrix(); 
+    
+    
+    strokeWeight(weight); 
+    pushMatrix(); 
+    //rotate(-(PI/6));
+    rotate(-angle); 
+    line(0, 0, 0, -branchLength); 
+    translate(0, -branchLength); 
+    if(branchLength < 24 && branchLength > 21) {
+      stroke(200, 0, 0); 
+      fill(200, 0, 0); 
+      ellipse(0, 0, 30, 30); 
+    }
+    stroke(0); 
+    fill(0); 
+    branch1(branchLength, weight-1.0,"r"); 
     popMatrix(); 
     
     strokeWeight(weight); 
@@ -65,8 +97,15 @@ void branch1(float branchLength, float weight, String str) {
     rotate(-angle); 
     line(0, 0, 0, -branchLength); 
     translate(0, -branchLength); 
+    if(branchLength < 24 && branchLength > 21) {
+      stroke(200, 0, 0); 
+      fill(200, 0, 0); 
+      ellipse(0, 0, 30, 30); 
+    }
+    stroke(0); 
+    fill(0); 
     branch1(branchLength, weight-1.0,"r"); 
-    popMatrix(); 
+    popMatrix();
     
   }  
   /*pushMatrix(); 
