@@ -1,7 +1,7 @@
 float angle; 
 float bLength; 
-int counter = 5; 
-float weight = 5.0; 
+int counter = 3; 
+float weight = 6.0; 
 
 void setup() {
   background(255); 
@@ -10,8 +10,8 @@ void setup() {
 
 void draw() {
   trunk1();
-  weight = 4.5; 
-  branch1(300);
+  weight = 5; 
+  branch1(300, weight-1,"l");
   //branch1(bLength); 
   //branch1(290); 
   noLoop(); 
@@ -20,50 +20,53 @@ void draw() {
 void trunk1() {
   strokeWeight(weight); 
   translate(width - 300, height); 
-  line(0, 0, 0, -300); 
-  translate(0, -300); 
+  line(0, 0, 0, -200); 
+  translate(0, -200); 
 }
 
-void branch1(float branchLength) {
-  if(weight < .1) {
-    weight = .1; 
-  }
+void branch1(float branchLength, float weight, String str) {
+  println("str:" + str + " " + weight); 
+  /*
+  if(weight < 1) {
+    weight = 1.0; 
+  } else {
+    strokeWeight(weight); 
+    weight -= 1.0; 
+  } */
 
   angle = random(0, PI/3);
   //line(0, 0, 0, -branchLength); 
   //translate(0, -branchLength); 
   branchLength = branchLength * .6; 
 
-  if(branchLength > 2) {
-    if(weight < .1) {
+  if(branchLength > 30) {
+    //counter--; 
+    if(weight < 1)
+      weight = 1; 
+      
+    /*if(weight < .1) {
       weight = .1; 
     } else { 
       weight -= .1; 
       strokeWeight(weight); 
-    }
+    }*/
+    strokeWeight(weight); 
     pushMatrix(); 
     //rotate(PI/6);
     rotate(angle); 
     line(0, 0, 0, -branchLength); 
     translate(0, -branchLength); 
-    branch1(branchLength); 
+    branch1(branchLength, weight-1.0,"l"); 
     popMatrix(); 
     
-    weight = 4.5; 
-    if(weight < .1) {
-      weight = .1; 
-    } else { 
-      weight -= .1; 
-      strokeWeight(weight); 
-    }
+    strokeWeight(weight); 
     pushMatrix(); 
     //rotate(-(PI/6));
     rotate(-angle); 
     line(0, 0, 0, -branchLength); 
     translate(0, -branchLength); 
-    branch1(branchLength); 
+    branch1(branchLength, weight-1.0,"r"); 
     popMatrix(); 
-    
     
   }  
   /*pushMatrix(); 
