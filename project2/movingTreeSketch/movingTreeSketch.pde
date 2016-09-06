@@ -4,7 +4,7 @@ float bLength;
 float weight = 7.0; 
 
 void setup() {
-  background(255); 
+  background(246, 241, 212); 
   size(1440, 900); 
 }
 
