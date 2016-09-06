@@ -12,6 +12,7 @@ FloatList angleList;
 int top = 0;
 
 void setup() {
+  clear(); 
   background(246, 241, 212); 
   size(1440, 900); 
   /*ellipsePos = new PVector(); 
@@ -24,6 +25,7 @@ void setup() {
 
 void draw() {
   background(246, 241, 212); 
+  //drawBackgroundTree(); 
   top = 0; //<>//
   weight = 6; 
   trunk1();
@@ -47,8 +49,34 @@ void draw() {
   
 }
 
-void mousePressed() {
+/*void mousePressed() {
   redraw(); 
+}*/
+
+void drawBackgroundTree() {
+  strokeWeight(2); 
+  line(300, height - 150, 300, height - 250); 
+  strokeWeight(1); 
+  line(300, height - 250, 250, height - 300); 
+  line(300, height - 250, 350, height - 270); 
+  strokeWeight(.5); 
+  line(250, height - 300, 260, height - 320); 
+  line(250, height - 300, 230, height - 280); 
+  line(350, height - 270, 360, height - 280); 
+  line(350, height - 270, 330, height - 273); 
+  stroke(200, 0, 0); 
+  fill(200, 0, 0); 
+  ellipse(260, height - 320, 15, 15); 
+  ellipse(230, height - 280, 15, 15); 
+  ellipse(360, height - 280, 15, 15); 
+  ellipse(330, height - 273, 15, 15); 
+  //
+  fill(0); 
+  stroke(0); 
+
+
+  
+  
 }
 
 void trunk1() {
@@ -131,6 +159,7 @@ void branch1(float branchLength, float weight, String str) {
     if(branchLength < 24 && branchLength > 21) {
       stroke(200, 0, 0); 
       fill(200, 0, 0); 
+      oscillate();
       ellipse(ellipsePos.x, ellipsePos.y, 30, 30);
       //ellipse(0, 0, 30, 30); 
       counterEllipse++;
@@ -150,6 +179,7 @@ void branch1(float branchLength, float weight, String str) {
     if(branchLength < 24 && branchLength > 21) {
       stroke(200, 0, 0); 
       fill(200, 0, 0); 
+      oscillate();
       ellipse(ellipsePos.x, ellipsePos.y, 30, 30);
       //ellipse(0, 0, 30, 30); 
       counterEllipse++;
@@ -244,7 +274,7 @@ void branch1(float branchLength, float weight, String str) {
     //rAngle.x = PI/6;
     
     //velocity = new PVector(random(-0.05,0.1),random(-0.05,0.1));
-    velocity = new PVector(.0005,.0005); 
+    velocity = new PVector(.005,.005); 
     //amplitude = new PVector(random(width/2),random(height/2));
     amplitude = new PVector(random(3,5),random(3,7));
   }
@@ -252,14 +282,14 @@ void branch1(float branchLength, float weight, String str) {
   void oscillate()  {
     ellipseAngle.add(velocity);
     
-    float x = sin(ellipseAngle.x)*amplitude.x;
-    float y = sin(ellipseAngle.y)*amplitude.y;
-    //float x = noise((velocity.x+ellipseAngle.x)*.02,ellipseAngle.y*.02);
-    //float y = noise(ellipseAngle.x*.02,(velocity.y+ellipseAngle.y)*.02);
-    //ellipsePos.x = x*30;
-    //ellipsePos.y = y*30;
-    ellipsePos.x = x;
-    ellipsePos.y = y;
+    //float x = sin(ellipseAngle.x)*amplitude.x;
+    //float y = sin(ellipseAngle.y)*amplitude.y;
+    float x = noise((velocity.x+ellipseAngle.x)*.02,ellipseAngle.y*.02);
+    float y = noise(ellipseAngle.x*.02,(velocity.y+ellipseAngle.y)*.02);
+    ellipsePos.x = x*15;
+    ellipsePos.y = y*15;
+    //ellipsePos.x = x;
+    //ellipsePos.y = y;
  
   }
  
