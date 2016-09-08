@@ -1,4 +1,18 @@
-
+//MIHIR SRIVASTAVA PROJECT 2
+//September 7th 2016
+//ATTRIBUTIONS: 
+//-Daniel Shiffman / Proessing API   - pendulum motion - used his motion code to play with 
+//                                     various forms of motion and added arguments
+//                                     /parameteres (like sway, random widths/heights for arcs, etc.
+//                                     to fit my project. 
+//                                   - used fractal tree example to get started with 
+//                                     recursion tree drawing. 
+//                                     I made the code randomly generate branches placement, 
+//                                     number of branches, varied strokeWeight, 
+//                                     and created leaf nodes at the end of each completed branch.
+//--
+//
+//--
 float angle; 
 float bLength; 
 //int counter = 35; 
@@ -28,11 +42,11 @@ void setup() {
     movers[i] = new MotionObject(random(0.1,4),random(width),random(height/2));
   }*/
   
-  pendObjs = new PendMotion[20];
+  pendObjs = new PendMotion[40];
   for (int i = 0; i  < pendObjs.length; ++i) {
     //pendObjs[i] = new Pendulum(new PVector(width/2,10),125);
-    float x = random(-1000, 0);
-    float y = random(-300, 0);
+    float x = random(-800, 200);
+    float y = random(-300, -50);
     pendObjs[i] = new PendMotion(new PVector(x,y),1,random(0.3,0.9),random(PI/12,PI/20), random(20, 30), random(3, 5), random(.1, .4)); //<>//
   }
   
