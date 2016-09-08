@@ -45,7 +45,7 @@ void setup() {
 void draw() {
   background(246, 241, 212); 
   //drawBackgroundTree(); 
-  drawClouds(); 
+  //drawClouds(); 
   top = 0;
   weight = 6; 
   trunk1();
@@ -97,7 +97,7 @@ void drawClouds() {
   stroke(255); 
   fill(255); 
   ellipse(30, 90, 200, 90); 
-  ellipse(100, 200, 200, 90); 
+  ellipse(60, 150, 100, 90); 
   ellipse(800, 150, 200, 90); 
   ellipse(900, 250, 200, 90); 
 
